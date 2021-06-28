@@ -55,6 +55,42 @@ var events=new Schema({
 },{
   collection:'hungerfreeindia'
 });
+var strive=new Schema({
+  tagline:String,
+  bgimg:String,
+  description:String,
+  imgright:String,
+  events:Array
+},{
+  collection:'strivewithpride'
+});
+var ruya=new Schema({
+  tagline:String,
+  bgimg:String,
+  description:String,
+  imgright:String,
+  events:Array
+},{
+  collection:'projectruya'
+});
+var bird=new Schema({
+  tagline:String,
+  bgimg:String,
+  description:String,
+  imgright:String,
+  events:Array
+},{
+  collection:'asfreeasbird'
+});
+var wings=new Schema({
+  tagline:String,
+  bgimg:String,
+  description:String,
+  imgright:String,
+  events:Array
+},{
+  collection:'giveherwings'
+});
 
 app.use(express.static('public'));
 app.use(cors());
@@ -65,7 +101,10 @@ var Counter = mongoose.model('Counter',counter);
 var Aware=mongoose.model('Aware',awareness);
 var Goals=mongoose.model('Goals',ourgoals);
 var Events=mongoose.model('Events',events);
-
+var Strive=mongoose.model('Strive',strive);
+var Ruya=mongoose.model('Ruya',ruya);
+var Bird=mongoose.model('Bird',bird);
+var Wings=mongoose.model('Wings',wings);
 app.get("/",(req,res)=>{
   Counter.find(
     (err,doc)=>{
@@ -110,6 +149,62 @@ app.get("/goals",(req,res)=>{
 })
 app.get("/events",(req,res)=>{
   Events.find(
+    (err,doc)=>{
+      if(err){
+        res.json(err);
+      }
+      else{
+        console.log(doc);
+        res.json(doc);
+
+      }
+    }
+  )
+})
+app.get("/strive",(req,res)=>{
+  Strive.find(
+    (err,doc)=>{
+      if(err){
+        res.json(err);
+      }
+      else{
+        console.log(doc);
+        res.json(doc);
+
+      }
+    }
+  )
+})
+app.get("/ruya",(req,res)=>{
+  Ruya.find(
+    (err,doc)=>{
+      if(err){
+        res.json(err);
+      }
+      else{
+        console.log(doc);
+        res.json(doc);
+
+      }
+    }
+  )
+})
+app.get("/bird",(req,res)=>{
+  Bird.find(
+    (err,doc)=>{
+      if(err){
+        res.json(err);
+      }
+      else{
+        console.log(doc);
+        res.json(doc);
+
+      }
+    }
+  )
+})
+app.get("/wings",(req,res)=>{
+  Wings.find(
     (err,doc)=>{
       if(err){
         res.json(err);
