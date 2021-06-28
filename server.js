@@ -46,6 +46,15 @@ var ourgoals=new Schema({
 },{
   collection:'ourgoals'
 });
+var events=new Schema({
+  tagline:String,
+  bgimg:String,
+  description:String,
+  imgright:String,
+  events:Array
+},{
+  collection:'hungerfreeindia'
+});
 
 app.use(express.static('public'));
 app.use(cors());
@@ -55,7 +64,7 @@ app.use(express.json());
 var Counter = mongoose.model('Counter',counter);
 var Aware=mongoose.model('Aware',awareness);
 var Goals=mongoose.model('Goals',ourgoals);
-
+var Events=mongoose.model('Events',events);
 
 app.get("/",(req,res)=>{
   Counter.find(
@@ -87,6 +96,20 @@ app.get("/awareness",(req,res)=>{
 })
 app.get("/goals",(req,res)=>{
   Goals.find(
+    (err,doc)=>{
+      if(err){
+        res.json(err);
+      }
+      else{
+        console.log(doc);
+        res.json(doc);
+
+      }
+    }
+  )
+})
+app.get("/events",(req,res)=>{
+  Events.find(
     (err,doc)=>{
       if(err){
         res.json(err);
