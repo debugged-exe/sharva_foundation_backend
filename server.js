@@ -104,6 +104,16 @@ var wings=new Schema({
   collection:'giveherwings'
 });
 
+var covid=new Schema({
+  tagline:String,
+  bgimg:String,
+  description:String,
+  imgright:String,
+  events:Array
+},{
+  collection:'covid19'
+});
+
 var bgcarousel=new Schema({
 bgimg:String
 },{
@@ -152,13 +162,14 @@ var Strive=mongoose.model('Strive',strive);
 var Ruya=mongoose.model('Ruya',ruya);
 var Bird=mongoose.model('Bird',bird);
 var Wings=mongoose.model('Wings',wings);
+var Covid=mongoose.model('Covid',covid);
 var BgCarousel=mongoose.model('BgCarousel',bgcarousel);
 var Contact=mongoose.model('Contact',contact);
 var Joinus=mongoose.model('Joinus',join);
 var Awarecarousel=mongoose.model('Awarecarousel',awarecarousel);
 
 
-app.get("/",(req,res)=>{
+app.get("/home",(req,res)=>{
   Counter.find(
     (err,doc)=>{
       if(err){
@@ -282,6 +293,20 @@ app.get("/bird",(req,res)=>{
 
 app.get("/wings",(req,res)=>{
   Wings.find(
+    (err,doc)=>{
+      if(err){
+        res.json(err);
+      }
+      else{
+        console.log(doc);
+        res.json(doc);
+
+      }
+    }
+  )
+})
+app.get("/covid19",(req,res)=>{
+  Covid.find(
     (err,doc)=>{
       if(err){
         res.json(err);
