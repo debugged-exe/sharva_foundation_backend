@@ -169,7 +169,7 @@ var Joinus=mongoose.model('Joinus',join);
 var Awarecarousel=mongoose.model('Awarecarousel',awarecarousel);
 
 
-app.get("/home",(req,res)=>{
+app.get("/",(req,res)=>{
   Counter.find(
     (err,doc)=>{
       if(err){
