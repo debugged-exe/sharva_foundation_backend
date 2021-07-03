@@ -23,7 +23,7 @@ mongoose.connect(DB,{
 var Schema = mongoose.Schema;
 var counter= new Schema({
    name: String,
-   count: Number
+   count: Number,
 },{
   collection: 'counter'
 });
