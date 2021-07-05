@@ -120,6 +120,14 @@ bgimg:String
   collection:'backgroundcarousel'
 });
 
+var recentevent=new Schema({
+  heading:String,
+  date:String,
+  recentimg:String
+},{
+  collection:'recentevents'
+});
+
 var contact=new Schema({
   name:String,
   email:String,
@@ -167,7 +175,7 @@ var BgCarousel=mongoose.model('BgCarousel',bgcarousel);
 var Contact=mongoose.model('Contact',contact);
 var Joinus=mongoose.model('Joinus',join);
 var Awarecarousel=mongoose.model('Awarecarousel',awarecarousel);
-
+var RecentEvents=mongoose.model('RecentEvents',recentevent);
 
 app.get("/",(req,res)=>{
   Counter.find(
@@ -333,6 +341,21 @@ app.get("/bgcarousel",(req,res)=>{
     }
   )
 })
+
+app.get("/recentevents",(req,res)=>{
+  RecentEvents.find(
+    (err,doc)=>{
+      if(err){
+        res.json(err);
+      }
+      else{
+        console.log(doc);
+        res.json(doc);
+      }
+    }
+  )
+})
+
 
 app.post('/contact',(req,res)=>{
   new Contact({
