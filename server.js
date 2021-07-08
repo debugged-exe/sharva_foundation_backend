@@ -383,6 +383,7 @@ app.post('/join',(req,res)=>{
   new Joinus({
     name:req.body.name,
     email:req.body.email,
+    dob:req.body.dob,
     gender:req.body.gender,
     phone:req.body.phone,
     address:req.body.address,
