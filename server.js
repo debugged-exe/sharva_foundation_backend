@@ -24,6 +24,7 @@ var Schema = mongoose.Schema;
 var counter= new Schema({
    name: String,
    count: Number,
+   reacticon:String
 },{
   collection: 'counter'
 });
@@ -384,7 +385,7 @@ app.post('/join',(req,res)=>{
     email:req.body.email,
     gender:req.body.gender,
     phone:req.body.phone,
-    address:req.body.addres,
+    address:req.body.address,
     city:req.body.city,
     state:req.body.state,
     bloodgroup:req.body.bloodgroup,
