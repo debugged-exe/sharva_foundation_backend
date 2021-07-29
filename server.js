@@ -115,7 +115,7 @@ var covid=new Schema({
   collection:'covid19'
 });
 
-var strive=new Schema({
+var green=new Schema({
   tagline:String,
   bgimg:String,
   description:String,
@@ -352,7 +352,7 @@ app.get("/covid19",(req,res)=>{
   )
 })
 
-app.get("/projectgreen",(req,res)=>{
+app.get("/green",(req,res)=>{
   ProjectGreen.find(
     (err,doc)=>{
       if(err){
