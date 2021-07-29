@@ -206,7 +206,6 @@ app.get("/",(req,res)=>{
         res.json(err);
       }
       else{
-        console.log(doc);
         res.json(doc);
 
       }
@@ -222,7 +221,6 @@ app.get("/acarousel",(req,res)=>{
         res.json(err);
       }
       else{
-        console.log(doc);
         res.json(doc);
 
       }
@@ -238,7 +236,6 @@ app.get("/awareness",(req,res)=>{
         res.json(err);
       }
       else{
-        console.log(doc);
         res.json(doc);
 
       }
@@ -253,7 +250,6 @@ app.get("/goals",(req,res)=>{
         res.json(err);
       }
       else{
-        console.log(doc);
         res.json(doc);
 
       }
@@ -268,7 +264,6 @@ app.get("/events",(req,res)=>{
         res.json(err);
       }
       else{
-        console.log(doc);
         res.json(doc);
 
       }
@@ -283,7 +278,6 @@ app.get("/strive",(req,res)=>{
         res.json(err);
       }
       else{
-        console.log(doc);
         res.json(doc);
 
       }
@@ -300,7 +294,6 @@ app.get("/ruya",(req,res)=>{
         res.json(err);
       }
       else{
-        console.log(doc);
         res.json(doc);
 
       }
@@ -315,7 +308,6 @@ app.get("/bird",(req,res)=>{
         res.json(err);
       }
       else{
-        console.log(doc);
         res.json(doc);
 
       }
@@ -330,7 +322,6 @@ app.get("/wings",(req,res)=>{
         res.json(err);
       }
       else{
-        console.log(doc);
         res.json(doc);
 
       }
@@ -344,7 +335,6 @@ app.get("/covid19",(req,res)=>{
         res.json(err);
       }
       else{
-        console.log(doc);
         res.json(doc);
 
       }
