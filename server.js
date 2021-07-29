@@ -115,11 +115,21 @@ var covid=new Schema({
   collection:'covid19'
 });
 
+var strive=new Schema({
+  tagline:String,
+  bgimg:String,
+  description:String,
+  imgright:String,
+  events:Array
+},{
+  collection:'projectgreen'
+});
+
 var ongoingprojects=new Schema({
   heading:String,
   para:String,
   imgUrl:String
-  
+
 },{
   collection:'ongoingprojects'
 });
@@ -187,6 +197,7 @@ var Joinus=mongoose.model('Joinus',join);
 var Awarecarousel=mongoose.model('Awarecarousel',awarecarousel);
 var RecentEvents=mongoose.model('RecentEvents',recentevent);
 var OnGoingProjects=mongoose.model('OnGoingProjects',ongoingprojects);
+var ProjectGreen=mongoose.model('ProjectGreen',projectgreen);
 
 app.get("/",(req,res)=>{
   Counter.find(
@@ -328,6 +339,21 @@ app.get("/wings",(req,res)=>{
 })
 app.get("/covid19",(req,res)=>{
   Covid.find(
+    (err,doc)=>{
+      if(err){
+        res.json(err);
+      }
+      else{
+        console.log(doc);
+        res.json(doc);
+
+      }
+    }
+  )
+})
+
+app.get("/projectgreen",(req,res)=>{
+  ProjectGreen.find(
     (err,doc)=>{
       if(err){
         res.json(err);
