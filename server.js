@@ -125,6 +125,16 @@ var projectgreen=new Schema({
   collection:'projectgreen'
 });
 
+var blooddonation=new Schema({
+  tagline:String,
+  bgimg:String,
+  description:String,
+  imgright:String,
+  events:Array
+},{
+  collection:'blooddonation'
+});
+
 var ongoingprojects=new Schema({
   heading:String,
   para:String,
@@ -198,6 +208,7 @@ var Awarecarousel=mongoose.model('Awarecarousel',awarecarousel);
 var RecentEvents=mongoose.model('RecentEvents',recentevent);
 var OnGoingProjects=mongoose.model('OnGoingProjects',ongoingprojects);
 var ProjectGreen=mongoose.model('ProjectGreen',projectgreen);
+var BloodDonation=mongoose.model('BloodDonation',blooddonation);
 
 app.get("/",(req,res)=>{
   Counter.find(
@@ -344,6 +355,21 @@ app.get("/covid19",(req,res)=>{
 
 app.get("/projectgreen",(req,res)=>{
   ProjectGreen.find(
+    (err,doc)=>{
+      if(err){
+        res.json(err);
+      }
+      else{
+        console.log(doc);
+        res.json(doc);
+
+      }
+    }
+  )
+})
+
+app.get("/blooddonation",(req,res)=>{
+  BloodDonation.find(
     (err,doc)=>{
       if(err){
         res.json(err);
