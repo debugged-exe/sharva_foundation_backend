@@ -222,7 +222,7 @@ app.get("/",(req,res)=>{
         doc.map((item,index)=>{
 
           if(item.name==='Volunteers')
-          { 
+          {
             if(volval)
             {
              volval=false;
@@ -244,15 +244,16 @@ app.get("/",(req,res)=>{
 
               }
           }
-        })
+        },[])
+
         res.json(doc);
       }
     }
   )
-  
+
 })
 
-  
+
 app.get("/acarousel",(req,res)=>{
   Awarecarousel.find(
     (err,doc)=>{
