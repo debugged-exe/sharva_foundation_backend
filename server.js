@@ -21,6 +21,7 @@ mongoose.connect(DB,{
 
 
 var Schema = mongoose.Schema;
+var volval=false;
 var counter= new Schema({
    name: String,
    count: Number,
@@ -211,20 +212,47 @@ var ProjectGreen=mongoose.model('ProjectGreen',projectgreen);
 var BloodDonation=mongoose.model('BloodDonation',blooddonation);
 
 app.get("/",(req,res)=>{
+
   Counter.find(
     (err,doc)=>{
       if(err){
         res.json(err);
       }
       else{
-        res.json(doc);
+        doc.map((item,index)=>{
 
+          if(item.name==='Volunteers')
+          { 
+            if(volval)
+            {
+             volval=false;
+             const query = { "name": "Volunteers" };
+              const update = {
+                "$set": {
+                  "count":item.count+1
+                }
+              };
+              const options = { "upsert": false };
+              Counter.updateOne(query, update, options)
+                .then(result => {
+                  const { matchedCount, modifiedCount } = result;
+                  if(matchedCount && modifiedCount) {
+                    console.log(`Successfully updated the item.`)
+                  }
+                })
+                .catch(err => console.error(`Failed to update the item: ${err}`))
+
+              }
+          }
+        })
+        res.json(doc);
       }
     }
   )
+  
 })
 
-
+  
 app.get("/acarousel",(req,res)=>{
   Awarecarousel.find(
     (err,doc)=>{
@@ -470,8 +498,11 @@ app.post('/join',(req,res)=>{
       console.log(err);
       res.json(err)
     }
+
     else{
-      console.log("joinus working");
+      volval=true;
+      console.log("joinus working",volval);
+      // mongodb.db("sharvadatabase").collection("counter").updateOne({name:'Volunteers'},{count:count+1});
       res.json("Success");
     }
   })
