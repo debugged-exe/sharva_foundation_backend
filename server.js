@@ -54,6 +54,7 @@ var ourgoals=new Schema({
   location:String,
   totalCost:String,
   flyer:String,
+  desp:String
 },{
   collection:'ourgoals'
 });
