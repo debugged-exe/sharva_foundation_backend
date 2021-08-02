@@ -51,7 +51,9 @@ var awarecarousel=new Schema({
 var ourgoals=new Schema({
   img:String,
   heading:String,
-  supporters:String
+  location:String,
+  totalCost:String,
+  flyer:String,
 },{
   collection:'ourgoals'
 });
