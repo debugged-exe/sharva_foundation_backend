@@ -38,6 +38,7 @@ var awareness =new Schema({
   speaker:String,
   desp:String,
   img:String,
+  link:String
 },{
   collection:'awarness'
 });
