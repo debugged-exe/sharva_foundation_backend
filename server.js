@@ -38,7 +38,6 @@ var awareness =new Schema({
   speaker:String,
   desp:String,
   img:String,
-  link:String
 },{
   collection:'awarness'
 });
@@ -55,7 +54,6 @@ var ourgoals=new Schema({
   location:String,
   totalCost:String,
   flyer:String,
-  desp:String
 },{
   collection:'ourgoals'
 });
@@ -187,7 +185,8 @@ var join=new Schema({
   category:Array,
   whyjoin:String,
   date: String,
-  time:String
+  time:String,
+  active:Boolean
 },{
   collection:'joinus'
 });
@@ -495,6 +494,7 @@ app.post('/join',(req,res)=>{
     currentcity:req.body.currentcity,
     category:req.body.category,
     whyjoin:req.body.whyjoin,
+    active:true,
     date: new Date(Date.now()).toLocaleString().split(',')[0],
     time:new Date().toLocaleTimeString()
   })
