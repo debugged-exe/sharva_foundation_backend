@@ -138,6 +138,25 @@ var blooddonation=new Schema({
   collection:'blooddonation'
 });
 
+var twenty=new Schema({
+  tagline:String,
+  bgimg:String,
+  description:String,
+  imgright:String,
+  events:Array
+},{
+  collection:'tweny'
+});
+var twentyone=new Schema({
+  tagline:String,
+  bgimg:String,
+  description:String,
+  imgright:String,
+  events:Array
+},{
+  collection:'twentyone'
+});
+
 var ongoingprojects=new Schema({
   heading:String,
   para:String,
@@ -202,6 +221,8 @@ var Goals=mongoose.model('Goals',ourgoals);
 var Events=mongoose.model('Events',events);
 var Strive=mongoose.model('Strive',strive);
 var Ruya=mongoose.model('Ruya',ruya);
+var Twenty=mongoose.model('Twenty',twenty);
+var Twentyone=mongoose.model('Twentyone',twentyone);
 var Bird=mongoose.model('Bird',bird);
 var Wings=mongoose.model('Wings',wings);
 var Covid=mongoose.model('Covid',covid);
@@ -332,6 +353,34 @@ app.get("/strive",(req,res)=>{
 
 app.get("/ruya",(req,res)=>{
   Ruya.find(
+    (err,doc)=>{
+      if(err){
+        res.json(err);
+      }
+      else{
+        res.json(doc);
+
+      }
+    }
+  )
+})
+
+app.get("/twenty",(req,res)=>{
+  Twenty.find(
+    (err,doc)=>{
+      if(err){
+        res.json(err);
+      }
+      else{
+        res.json(doc);
+
+      }
+    }
+  )
+})
+
+app.get("/twentyone",(req,res)=>{
+  Twentyone.find(
     (err,doc)=>{
       if(err){
         res.json(err);
