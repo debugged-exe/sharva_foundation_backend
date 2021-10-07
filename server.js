@@ -145,7 +145,7 @@ var twenty=new Schema({
   imgright:String,
   events:Array
 },{
-  collection:'tweny'
+  collection:'twenty'
 });
 var twentyone=new Schema({
   tagline:String,
