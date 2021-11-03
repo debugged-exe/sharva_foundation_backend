@@ -172,6 +172,12 @@ bgimg:String
   collection:'backgroundcarousel'
 });
 
+var merchandise=new Schema({
+  merchimg:String
+  },{
+    collection:'merchandise'
+  });
+
 var recentevent=new Schema({
   heading:String,
   date:String,
@@ -224,6 +230,7 @@ var Ruya=mongoose.model('Ruya',ruya);
 var Twenty=mongoose.model('Twenty',twenty);
 var Twentyone=mongoose.model('Twentyone',twentyone);
 var Bird=mongoose.model('Bird',bird);
+var Merchandise=mongoose.model('Merchandise',merchandise);
 var Wings=mongoose.model('Wings',wings);
 var Covid=mongoose.model('Covid',covid);
 var BgCarousel=mongoose.model('BgCarousel',bgcarousel);
@@ -481,6 +488,20 @@ app.get("/ongoingprojects",(req,res)=>{
 
 app.get("/bgcarousel",(req,res)=>{
   BgCarousel.find(
+    (err,doc)=>{
+      if(err){
+        res.json(err);
+      }
+      else{
+        console.log(doc);
+        res.json(doc);
+      }
+    }
+  )
+})
+
+app.get("/merchandise",(req,res)=>{
+  Merchandise.find(
     (err,doc)=>{
       if(err){
         res.json(err);
